@@ -1,0 +1,39 @@
+.gallery {
+    padding: 60px 0px 150px;
+
+    &-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 120px 0px 60px;
+    }
+
+    .gallery-item {
+        border-radius: 12px;
+        overflow: hidden;
+        height: 600px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+@media (max-width: 767px) {
+    .gallery {
+        padding: 30px 20px 90px;
+    
+        &-top {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            padding: 0px;
+        }
+
+        &-buttons {
+            display: none;
+        }
+
+        .gallery-item {
+            height: 300px;
+        }
+    }
+}

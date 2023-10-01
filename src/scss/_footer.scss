@@ -1,0 +1,211 @@
+.footer {
+    padding: 0px 60px;
+    background: $light;
+    position: relative;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 60px;
+        border-radius: 60px 60px 0px 0px;
+        background: $light;
+        transform: translate(0, -98%);
+    }
+
+    .logo {
+        border: none;
+        padding: 0;
+    }
+    
+    &-wrapper {
+        padding: 40px 0px 65px;
+        display: flex;
+        grid-gap: 60px;
+        align-items: start;
+        justify-content: space-between;
+    }
+
+    &-col {
+        &:nth-child(3) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 10px 16px;
+            font-size: 18px;
+            
+            a {
+                font-size: 18px;
+                color: $text;
+                @include font-demi();
+                white-space: nowrap;
+
+                &:hover {
+                    color: $brand;
+                }
+
+                &:active {
+                    color: $accent;
+                }
+            }
+
+            .footer-adress {
+                @include font(400);
+            }
+
+            .footer-adress,
+            .footer-phone,
+            .footer-work,
+            .mail {
+                grid-column-start: span 2;
+            }
+
+            .footer-adress:nth-child(3) {
+                grid-row-start: 2;
+            }
+            .footer-phone:nth-child(2) {
+                grid-row-start: 3;
+                grid-column-start: 1;
+            }
+            .footer-phone:nth-child(4) {
+                grid-row-start: 3;
+                grid-column-start: 2;
+            }
+        }
+    }
+
+    .nav {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px 40px;
+
+        li {
+            a {
+                font-size: 18px;
+                color: $text;
+                white-space: nowrap;
+
+                &:hover {
+                    color: $accent;
+                }
+
+                &:active {
+                    color: $brand;
+                }
+            }
+        }
+    }
+
+    .button {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    &-bottom {
+        border-top: 1px solid $second;
+        padding: 30px 0px 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+
+        a {
+            font-size: 18px;
+            color: $second;
+        }
+    }
+}
+
+@media(max-width: 767px) {
+    .footer {
+        padding: 20px 20px;
+        background: $light;
+        position: relative;
+        &::before {
+            display: none;
+        }
+    
+        .logo {
+            max-width: 100%;
+            gap: 10px;
+            img {
+                width: 196px;
+            }
+            &-text {
+                display: block;
+                font-size: 10px;
+            }
+        }
+        
+        &-wrapper {
+            padding: 0px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 0;
+        }
+    
+        &-col {
+            padding: 20px 0px;
+            border-bottom: 1px solid $second;
+
+            &:first-child {
+                border-bottom: none;
+            }
+
+            &:nth-child(3) {
+                font-size: 14px;
+                
+                a {
+                    font-size: 14px;
+                }
+    
+                .footer-adress,
+                .footer-phone,
+                .footer-work,
+                .mail {
+                    grid-column-start: span 2;
+                }
+    
+                .footer-adress:nth-child(3) {
+                    grid-row-start: 2;
+                }
+                .footer-phone:nth-child(2) {
+                    grid-row-start: 3;
+                    grid-column-start: 1;
+                }
+                .footer-phone:nth-child(4) {
+                    grid-row-start: 3;
+                    grid-column-start: 2;
+                }
+            }
+        }
+    
+        .nav {    
+            li {
+                a {
+                    font-size: 14px;
+                }
+            }
+        }
+    
+        .button {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+    
+        &-bottom {
+            padding: 20px 0px;
+            flex-direction: column;
+            gap: 5px;
+            border-top: none;
+    
+            a {
+                font-size: 14px;
+            }
+        }
+    }
+}

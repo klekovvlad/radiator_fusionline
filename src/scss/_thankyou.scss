@@ -1,0 +1,37 @@
+.thankyoupage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0px;
+    background: url('../img/use-bg.png') no-repeat center;
+    background-size: contain;
+
+    h1.title {
+        font-size: 64px;
+        font-weight: 700;
+    }
+
+    .desc {
+        text-align: center;
+        font-size: 20px;
+        max-width: 500px;
+        margin: 30px auto 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .thankyoupage {
+        padding: 60px 0px;
+    
+        h1.title {
+            font-size: 40px;
+        }
+    
+        .desc {
+            font-size: 16px;
+            max-width: 100%;
+            margin: 30px auto 50px;
+        }
+    }
+}

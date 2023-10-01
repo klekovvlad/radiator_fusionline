@@ -1,0 +1,42 @@
+@import './reset';
+@import '../../node_modules/swiper/swiper';
+@import '../../node_modules/swiper/modules/autoplay/autoplay';
+@import '../../node_modules/plyr/src/sass/plyr.scss';
+@import './fonts';
+@import './mixins';
+@import './colors';
+@import './settings';
+@import './logo';
+@import './button';
+@import './button-slider';
+@import './catalog-download';
+@import './titles';
+@import './input';
+@import './input-errors';
+@import './social';
+@import './section-white';
+@import './popup';
+@import './popup-product';
+@import './form';
+@import './animation';
+
+@import './header';
+@import './header-nav';
+@import './hero';
+@import './homepage-advantages';
+@import './homepage-products';
+@import './homepage-produce';
+@import './homepage-use';
+@import './homepage-quiz';
+@import './homepage-about';
+@import './homepage-gallery';
+@import './homepage-warranty';
+@import './homepage-partners';
+@import './homepage-faq';
+@import './homepage-map';
+
+@import './footer';
+
+@import './errorpage';
+@import './rulespage';
+@import './thankyou';

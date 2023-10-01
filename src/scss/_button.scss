@@ -1,0 +1,90 @@
+.button {
+    max-width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text;
+    font-size: 18px;
+    @include font-demi();
+    padding: 18px 80px 19px;
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 10px;
+        bottom: 0;
+        left: 10px;
+        background: $accent;
+        border-radius: 8px;
+        transform: skew(-10deg);
+    } 
+
+    &::after {
+        content: '';
+        position: absolute;
+        top: -1px;
+        right: 9px;
+        bottom: -1px;
+        left: 9px;
+        background: $brand;
+        border-radius: 8px;
+        transform: translate(110%, 0%) skew(-10deg);
+    }
+    
+    &-text {
+        position: relative;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        color: $second;
+
+        &::before {
+            background: #E8E8E8;
+        }
+    }
+
+    &:hover {
+        color: #fff;
+        @media(min-width: 768px) {
+            &::after {
+                animation: button .8s linear forwards;
+            }
+        }
+        @media (max-width: 767px) {
+            &::before {
+                background: $brand;
+            }
+        }
+    }
+}
+
+@keyframes button {
+    0% {
+        transform: translate(110%, 0%) skew(-10deg);
+    }
+    50% {
+        transform: translate(0%, 0%) skew(-10deg);
+    }
+    75% {
+        transform: translate(5%, 0%) skew(-10deg);
+    }
+    100% {
+        transform: translate(0%, 0%) skew(-10deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .button {
+        width: 100%;
+        max-width: 100%;
+        font-size: 14px;
+        padding: 17px 30px 15px;
+    }
+}

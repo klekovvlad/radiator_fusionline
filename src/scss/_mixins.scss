@@ -1,0 +1,9 @@
+@mixin font($weight) {
+    font-family: Europe, sans-serif;
+    font-weight: $weight;
+}
+
+@mixin font-demi() {
+    font-family: europedeminormal, sans-serif;
+    font-weight: 400;
+}

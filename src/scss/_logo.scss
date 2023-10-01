@@ -1,0 +1,25 @@
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 5px 18px 5px 0px;
+    border-right: 1px solid $second;
+
+    &-text {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+    .logo {
+        gap: 0px;
+        padding: 0px;
+        border-right: none;
+        max-width: 160px;
+    
+        &-text {
+            display: none;
+        }
+    }
+}

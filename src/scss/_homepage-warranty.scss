@@ -1,0 +1,460 @@
+.warranty {
+    background: $light;
+    padding: 60px 60px 120px;
+    border-radius: 60px 60px 0px 0px;
+
+    &-advantage {
+        padding: 80px 0px 0px 0px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+        position: relative;
+    }
+
+    &-img {
+        position: relative;
+        z-index: 2;
+
+        &-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 412px;
+            height: 412px;
+            overflow: hidden;
+            border-radius: 50%;
+            background: #DBDBDB;
+        }
+
+        img {
+            max-width: none;
+            position: relative;
+            top: 50px;
+            pointer-events: none;
+        }
+
+        &::before {
+            content: '';
+            width: 528px;
+            height: 528px;
+            border: 3px solid $brand;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &-item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+        font-size: 30px;
+        width: max-content;
+        padding: 18px 0px;
+        z-index: 3;
+        opacity: 0;
+        transition: opacity 1s linear;
+
+        &::before {
+            content: '';
+            height: 3px;
+            background: $brand;
+            position: absolute;
+            transition: right 1s linear, left 1s linear;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: $brand;
+            border-radius: 50%;
+            transition: opacity 1s linear;
+        }
+
+        &:nth-child(2) {
+            top: 19px;
+            left: 280px;
+
+            &::before {
+                top: 0;
+                left: calc(100% + 296px);
+                right: -296px;
+            }
+
+            &::after {
+                top: 0;
+                right: -296px;
+                transform: translate(50%, -50%);
+            }
+        }
+
+        &:nth-child(3) {
+            top: 50%;
+            left: 100px;
+
+            &::before {
+                top: 0;
+                left: calc(100% + 302px);
+                right: -302px;
+            }
+
+            &::after {
+                top: 0;
+                right: -302px;
+                transform: translate(50%, -50%);
+            }
+        }
+
+        &:nth-child(4) {
+            top: 40%;
+            left: calc(100% - 100px);
+            transform: translate(-100%, 0);
+
+            &::before {
+                bottom: 0;
+                right: calc(100% + 204px);
+                left: -204px;
+            }
+
+            &::after {
+                bottom: 0;
+                left: -204px;
+                transform: translate(-50%, 50%);
+            }
+        }
+
+        &:nth-child(5) {
+            top: 100%;
+            left: 65%;
+            transform: translate(0, -28px);
+
+            &::before {
+                bottom: 0;
+                right: calc(100% + 274px);
+                left: -274px;
+            }
+
+            &::after {
+                bottom: 0;
+                left: -274px;
+                transform: translate(-50%, 50%);
+            }
+        }
+    }
+
+    &-lead {
+        position: relative;
+        max-width: 50%;
+        padding: 0px 84px 68px 140px;
+        background: transparent;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: -62px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 20px solid #fff;
+            transform: skew(-8deg);
+            border-radius: 15px;
+        }
+
+        &-content {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-self: start;
+            gap: 28px;
+        }
+
+        &-title {
+            @include font-demi();
+            font-size: 30px;
+        }
+
+        &-desc {
+            font-size: 18px;
+        }
+    }
+
+    &.view {
+
+        .warranty-item {
+            opacity: 1;
+    
+            &::before {
+                opacity: 1;
+            }
+    
+            &::after {
+                opacity: 1;
+            }
+    
+            &:nth-child(2) {
+                transition-delay: 1s;
+    
+                &::before {
+                    transition-delay: .5s;
+                    right: -296px;
+                    left: 0;
+                }
+            }
+    
+            &:nth-child(3) {
+                transition-delay: 2s;
+    
+                &::before {
+                    transition-delay: 1.5s;
+                    right: -302px;
+                    left: 0;
+                }
+            }
+    
+            &:nth-child(4) {
+                transition-delay: 3s;
+    
+                &::before {
+                    transition-delay: 2.5s;
+                    left: -204px;
+                    right: 0;
+                }
+            }
+    
+            &:nth-child(5) {  
+                transition-delay: 4s; 
+                &::before {
+                    transition-delay: 3.5s;
+                    left: -274px;
+                    right: 0;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (max-width: 767px) {
+    .warranty {
+        padding: 38px 20px 60px;
+        border-radius: 30px 30px 0px 0px;
+    
+        &-advantage {
+            padding: 60px 0px 0px 0px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 26px;
+        }
+    
+        &-img {  
+            &-content {
+                width: 260px;
+                height: 260px;
+                margin: 0px auto;
+                margin-bottom: 10px;
+            }
+    
+            img {
+                max-width: none;
+                position: relative;
+                top: 50px;
+            }
+    
+            &::before {
+                width: 335px;
+                height: 335px;
+            }
+        }
+    
+        &-item {
+            position: relative;
+            font-size: 16px;
+            width: max-content;
+            padding: 12px 0px;
+            width: 100%;
+
+            &:nth-child(odd) {
+                justify-content: end;
+            }
+
+            .icon {
+                width: 40px;
+                flex: 0 0 40px;
+            }
+    
+            &::before {
+                content: '';
+                height: 3px;
+                background: $brand;
+                position: absolute;
+                transition: right 1s linear, left 1s linear;
+            }
+    
+            &::after {
+                width: 8px;
+                height: 8px;
+                display: none;
+                max-width: max-content;
+            }
+    
+            &:nth-child(2) {
+                top: 0px;
+                left: 0px;
+    
+                &::before {
+                    top: 100%;
+                    left: 0px;
+                    right: 0;
+                }
+    
+                &::after {
+                    top: 0;
+                    right: -296px;
+                    transform: translate(50%, -50%);
+                }
+            }
+    
+            &:nth-child(3) {
+                top: 0px;
+                left: 0px;
+    
+                &::before {
+                    top: 100%;
+                    left: 0px;
+                    right: 0;
+                }
+    
+                &::after {
+                    top: 0;
+                    right: -302px;
+                    transform: translate(50%, -50%);
+                }
+            }
+    
+            &:nth-child(4) {
+                top: 0px;
+                left: 0px;
+                transform: translate(0%, 0);
+    
+                &::before {
+                    top: 100%;
+                    left: 0px;
+                    right: 0;
+                }
+    
+                &::after {
+                    bottom: 0;
+                    left: -204px;
+                    transform: translate(-50%, 50%);
+                }
+            }
+    
+            &:nth-child(5) {
+                top: 0px;
+                left: 0px;
+                transform: translate(0, 0px);
+    
+                &::before {
+                    top: 100%;
+                    left: 0px;
+                    right: 0;
+                }
+    
+                &::after {
+                    bottom: 0;
+                    left: -274px;
+                    transform: translate(-50%, 50%);
+                }
+            }
+        }
+    
+        &-lead {
+            margin-top: 30px;
+            position: relative;
+            max-width: 100%;
+            padding: 38px 48px;
+            background: transparent;
+    
+            &::before {
+                top: 0px;
+            }
+    
+            &-content {
+                gap: 20px;
+            }
+    
+            &-title {
+                font-size: 16px;
+            }
+    
+            &-desc {
+                font-size: 14px;
+            }
+        }
+    
+        &.view {
+    
+            .warranty-item {
+                opacity: 1;
+        
+                &::before {
+                    opacity: 1;
+                }
+        
+                &::after {
+                    opacity: 1;
+                }
+        
+                &:nth-child(2) {
+                    transition-delay: 1s;
+        
+                    &::before {
+                        transition-delay: .5s;
+                        right: 0px;
+                        left: 0;
+                    }
+                }
+        
+                &:nth-child(3) {
+                    transition-delay: 2s;
+        
+                    &::before {
+                        transition-delay: 1.5s;
+                        right: 0px;
+                        left: 0;
+                    }
+                }
+        
+                &:nth-child(4) {
+                    transition-delay: 3s;
+        
+                    &::before {
+                        transition-delay: 2.5s;
+                        right: 0px;
+                        left: 0;
+                    }
+                }
+        
+                &:nth-child(5) {  
+                    transition-delay: 4s; 
+                    &::before {
+                        transition-delay: 3.5s;
+                        right: 0px;
+                        left: 0;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+}

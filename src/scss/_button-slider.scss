@@ -1,0 +1,122 @@
+.buttons-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .button-next,
+    .button-prev {
+        width: 50px;
+        height: 50px;
+        background: transparent;
+        border: 2px solid $accent;
+        border-radius: 50%;
+        position: relative;
+    
+        &::after {
+            content: '';
+            height: 2px;
+            width: 44px;
+            background: $accent;
+            border-radius: 2px;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+
+        &::before {
+            content: attr(data-number);
+            color: $accent;
+            @include font(400);
+            position: absolute;
+            top: 50%;
+            font-size: 30px;
+            line-height: 1;            
+        }
+
+        &:hover {
+            border: 2px solid $brand;
+
+            &::after {
+                background: $brand;
+            }
+
+            &::before {
+                color: $brand;
+            }
+        }
+    }
+
+    .button-next {
+        &::after {
+            right: -7px;
+        }
+        &::before {
+            right: -14px;
+            transform: translate(100%, -50%);
+        }
+
+    }
+
+    .button-prev {
+        &::after {
+            left: -7px;
+        }
+        &::before {
+            left: -14px;
+            transform: translate(-100%, -50%);
+        }
+    }
+
+    .button-disabled {
+        border: 2px solid $second;
+
+        &::after {
+            background: $second;
+        }
+
+        &::before {
+            color: $second;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .buttons-slider {
+        gap: 12px;
+    
+        .button-next,
+        .button-prev {
+            width: 40px;
+            height: 40px;
+        
+            &::after {
+                width: 40px;
+            }
+    
+            &::before {
+                font-size: 16px;
+            }
+        }
+    
+        .button-next {
+            &::after {
+                right: -10px;
+            }
+            &::before {
+                right: -20px;
+            }
+    
+        }
+    
+        .button-prev {
+            &::after {
+                left: -10px;
+            }
+            &::before {
+                left: -20px;
+            }
+        }
+    
+    }
+}

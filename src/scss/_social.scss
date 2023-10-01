@@ -1,0 +1,103 @@
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    a {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: $text;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 50%;
+            height: 50%;
+            object-fit: contain;
+            object-position: center;
+        }
+
+        &:hover {
+            background: $accent;
+        }
+
+        &:active {
+            background: $brand;
+        }
+    }
+}
+
+.mobile-social {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .social {
+        justify-content: space-between;
+        gap: 10px;
+    
+        a {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    .mobile-social {
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: $light;
+        border-top: 1px solid $second;
+        border-bottom: 1px solid $second;
+        z-index: 5;
+        transition: transform .5s linear;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 3px;
+            text-align: center;
+            background: transparent;
+            @include font(400);
+            font-size: 8px;
+            color: $text;
+            flex: 0 0 70px;
+
+            a {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: $text;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 50%;
+                    object-fit: contain;
+                    object-position: center;
+                }
+            }
+            .mobile-social-callback-icon {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: $text url('../img/icons/callback.svg') no-repeat center;
+                background-size: 50%;
+            }
+        }
+
+        &.hide {
+            transform: translate(0, calc(100% + 20px));
+        }
+    }
+}

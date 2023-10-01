@@ -1,0 +1,112 @@
+.header {
+    background: $light;
+    padding: 0px 60px;
+    position: relative;
+    
+    &-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        border-bottom: 1px solid $second;
+        padding: 30px 0px;
+    }
+
+    &-worktimes {
+        padding: 0px 18px 0px 18px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-gap: 30px;
+        align-items: center;
+        font-size: 17px;
+    }
+
+    &-adresses {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-gap: 5px 30px;
+        a {
+            color: $text;
+        }
+    }
+
+    .phone {
+        color: $text;
+        @include font-demi();
+
+        &:hover {
+            color: $brand;
+        }
+
+        &:active {
+            color: $accent;
+        }
+    }
+
+    .button {
+        padding: 13px 30px 14px;
+    }
+
+    &-mobile {
+        display: none;
+    }
+}
+
+@media(max-width: 767px) {
+    .header {
+        padding: 0px 0px;
+        
+        &-wrapper {
+            justify-content: space-between;
+            padding: 20px 20px;
+        }
+    
+        &-worktimes {
+            display: none;
+        }
+    
+        &-adresses {
+            display: none;
+        }
+    
+        .phone {
+            display: none;
+        }
+    
+        .button {
+            display: none;
+        }
+
+        &-mobile {
+            display: block;
+            
+
+            .button {
+                display: flex;
+            }
+
+            .phone {
+                display: block;
+                font-size: 14px;
+                &:not(:last-child) {
+                    margin-top: 10px;
+                }
+            }
+
+            .header-worktimes {
+                display: block;
+            }
+
+            .header-adresses {
+                margin: 20px 0px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                font-size: 10px;
+
+                a {
+                    color: $text;
+                }
+            }
+        }
+    }
+}

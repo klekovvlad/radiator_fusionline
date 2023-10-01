@@ -1,0 +1,136 @@
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+
+    overflow: auto;
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    &::-webkit-scrollbar {
+        width: 0;
+        display: none;
+        position: absolute;
+        z-index: -1;
+    }
+
+    &-body {
+        background: #fff;
+        width: 100%;
+    }
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &-form {
+        background: rgba($color: $text, $alpha: 0.6);
+        align-items: center;
+        z-index: 12;
+
+        .popup-body {
+            position: relative;
+            padding: 40px 60px;
+            border-radius: 12px;
+            background: $light;
+            width: min(800px, 95%);
+            max-width: min(800px, 95%);
+            opacity: 0;
+            transform: translate(0, 50px);
+            transition: opacity .3s linear, transform .5s linear;
+
+            .close {
+                top: 40px;
+                right: 60px;
+            }
+        }
+
+        &.open {
+            .popup-body {
+                opacity: 1;
+                transform: translate(0,0);
+            }
+        }
+    }
+}
+
+.close {
+    position: absolute;
+    z-index: 11;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    top: 30px;
+    right: 60px;
+    span {
+        pointer-events: none;
+        position: absolute;
+        height: 3px;
+        width: 34px;
+        border-radius: 1px;
+        background: $text;
+        top: 50%;
+        left: 50%;
+
+        &:first-child{
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        &:last-child {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+
+    &:hover {
+        span {
+            background: $brand;
+        }
+    }
+
+    &:active {
+        span {
+            background: $accent;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .popup {
+    
+        &-form {
+    
+            .popup-body {
+                padding: 58px 22px;
+                
+                width: calc(100vw - 40px);
+                max-width:  calc(100vw - 40px);
+    
+                .close {
+                    top: 20px;
+                    right: 20px;
+                }
+            }
+        }
+    }
+    
+    .close {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        top: 20px;
+        right: 20px;
+        span {
+            height: 2px;
+            width: 18px;
+
+        }
+    }
+}

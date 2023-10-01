@@ -1,0 +1,5 @@
+.animation {
+    transform: translate(0, 50px);
+    opacity: 0;
+    transition: opacity .3s linear, transform .5s linear;
+}

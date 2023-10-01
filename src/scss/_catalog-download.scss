@@ -1,0 +1,89 @@
+.catalog-download {
+    width: 80px;
+    height: 80px;
+    background: $brand;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    transform: translate(calc((-212px + 80px) / 2), calc((212px - 80px) / 2));
+    z-index: 2;
+    transition: background .5s linear;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &::before {  
+        width: 212px;
+        height: 212px;
+        background: url('../img/icons/download.svg') no-repeat center;
+        background-size: contain;
+        animation: rotate 8s linear infinite;
+    }
+
+    &::after {
+        width: 80px;
+        height: 50px;
+        background: url('../img/icons/download-icon.svg') no-repeat center;
+        background-size: contain;
+    }
+
+    &:hover,
+    &:active {
+        background: $accent;
+        &::after {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7466%) hue-rotate(22deg) brightness(114%) contrast(107%);
+        }
+    }
+
+    &:active {
+        &::before {
+            filter: brightness(0) saturate(100%) invert(70%) sepia(94%) saturate(1945%) hue-rotate(358deg) brightness(99%) contrast(108%);
+        }
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media (max-width: 767px) {
+    .catalog-download {
+        width: 46px;
+        height: 46px;
+        transform: translate(calc((-126px + 46px) / 2), calc((126px - 46px) / 2));
+    
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        &::before {  
+            width: 126px;
+            height: 126px;
+        }
+    
+        &::after {
+            width: 46px;
+            height: 24px;
+        }
+    }
+    
+    @keyframes rotate {
+        to {
+            transform: translate(-50%, -50%) rotate(360deg);
+        }
+    }
+}

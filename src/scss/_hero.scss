@@ -1,0 +1,107 @@
+.hero {
+    padding: 94px 60px 75px;
+    background: $light;
+    &-wrapper {
+        display: grid;
+        grid-template-columns: 60% 1fr;
+        align-items: center;
+    }
+
+    &-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 40px;
+    }
+
+    &-title {
+        font-size: 64px;
+        font-weight: 700;
+        animation: top .5s linear forwards;
+        transform: translate(0, 50px);
+        opacity: 0;
+    }
+
+    &-desc {
+        max-width: 650px;
+        font-size: 20px;
+        animation: top .5s .3s linear forwards;
+        transform: translate(0, 50px);
+        opacity: 0;
+    }
+
+    .button {
+        animation: top .5s .6s linear forwards;
+        transform: translate(0, 50px);
+        opacity: 0;
+    }
+
+    &-slider-wrapper {
+        overflow: hidden;
+        width: calc(100% + 140px);
+        position: relative;
+        left: -140px;
+    }
+
+    &-slider {
+        .swiper-slide {
+            opacity: 0;
+            transition: opacity .5s .3s linear;
+
+            &-active {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+@keyframes top {
+    to {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero {
+        padding: 30px 20px 12px;
+        &-wrapper {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    
+        &-text {
+            gap: 20px;
+        }
+    
+        &-title {
+            font-size: 20px;
+        }
+    
+        &-desc {
+            max-width: 100%;
+            font-size: 14px;
+        }
+    
+        &-slider-wrapper {
+            width: 100%;
+            left: 0px;
+            
+            .swiper-slide {
+                padding-right: 75px;
+            }
+        }
+    
+        &-slider {
+            .swiper-slide {
+                opacity: 0;
+                transition: opacity .5s .3s linear;
+    
+                &-active {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}

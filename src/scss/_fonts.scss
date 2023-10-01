@@ -1,0 +1,21 @@
+@font-face{
+	font-family: Europe;
+	font-display: swap;
+	src: url("../fonts/europenormal.woff2") format("woff2"), url("../fonts/europenormal.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face{
+	font-family: Europe;
+	font-display: swap;
+	src: url("../fonts/europebold.woff2") format("woff2"), url("../fonts/europebold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face{
+	font-family: europedeminormal;
+	font-display: swap;
+	src: url("../fonts/europedeminormal.woff2") format("woff2"), url("../fonts/europedeminormal.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
